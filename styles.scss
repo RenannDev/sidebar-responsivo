@@ -1,0 +1,56 @@
+
+#sidebar{
+    margin-block: 2rem;
+    width: 100%;
+    background-color: transparent;
+
+
+} .conteinerSidebar {
+    margin-inline: auto;
+    background-color: #f3bb7e;
+    width: 280px;
+    height: auto;
+    border-radius: 10px;
+    padding-block: 0.1px;
+    text-align: center; /* Para centralizar os itens dentro do menu */
+    }
+    
+    ul {
+        padding: 0;
+    }
+    
+    ul > li {
+        display: inline-block;
+        position: relative; /* Para que o balão fique relativo a cada item */
+        padding-inline: 7px;
+        color: #040204;
+        list-style: none;
+        font-weight: bold;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    
+    /* Estilos para o balão de texto */
+    ul li::after {
+        content: attr(data-title); /* Atribui o texto do balão com base no valor de data-title */
+        position: absolute;
+        left: 50%;
+        bottom: -30px; /* Coloca o balão abaixo do item */
+        transform: translateX(-50%) translateY(10px); /* Centraliza horizontalmente */
+        background-color: #040204;
+        color: #f3bb7e;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        white-space: nowrap;
+    }
+
+    /* Exibir o balão quando o mouse passa sobre o item */
+    ul li:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0); /* Move o balão para a posição visível */
+    }
